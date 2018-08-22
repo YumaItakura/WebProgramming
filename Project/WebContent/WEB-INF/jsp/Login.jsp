@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +17,27 @@
 <body>
 <div class="container">
 		<h1 class= "text-center">ログイン画面</h1>
-		<div class="form-group row">
-				<h3 class="col-sm-2">ログインID </h3>
-				 <input type="text" class="form-control col-sm-6">
+
+		<c:if test="${errMsg != null}">
+			<div class="alert alert-danger" >
+			  ${errMsg}
 			</div>
-		<div class="form-group row">
+		</c:if>
+<form action="LoginServlet" method="post">
+			<div class="form-group row">
+				<h3 class="col-sm-2">ログインID </h3>
+				 <input type="text" class="form-control col-sm-6" name="loginId" >
+			</div>
+
+			<div class="form-group row">
 				<h3 class="col-sm-2">パスワード </h3>
-			 	<input type="password" class="form-control col-sm-6">
+				 <input type="password" class="form-control col-sm-6" name="password">
 			</div>
 
 		<div class="text-center">
-		<button type="button" class="btn btn-secondary">ログイン</button>
+			<button type="submit" class="btn btn-secondary">ログイン</button>
 		</div>
-
+</form>
 </div>
 
 </body>
